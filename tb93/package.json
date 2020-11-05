@@ -1,0 +1,54 @@
+{
+  "_from": "tb93",
+  "_id": "tb93@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-NpNKI1lD33d0lUD5p6BRMbZ4/7rnlOYmTqbWDcZVoGUnBJRk3NeY9HAjROuk9ezb0c6jZ3F97BE35fSeUIeFQQ==",
+  "_location": "/tb93",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "tb93",
+    "name": "tb93",
+    "escapedName": "tb93",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tb93/-/tb93-1.0.3.tgz",
+  "_shasum": "07790e8ca8661ea41ef3c6ca9258b85fe7a9802f",
+  "_spec": "tb93",
+  "_where": "C:\\Users\\Илья\\Desktop\\bots",
+  "author": {
+    "name": "AlexApps99"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexApps99/tb93/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "he": "^1.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "deprecated": false,
+  "description": "A minimal library for creating Trollbox bots on Windows93",
+  "homepage": "https://github.com/AlexApps99/tb93#readme",
+  "keywords": [
+    "windows93",
+    "w93",
+    "trollbox",
+    "windows-93"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "tb93",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexApps99/tb93.git"
+  },
+  "version": "1.0.3"
+}
