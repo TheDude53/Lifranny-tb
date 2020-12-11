@@ -1,5 +1,5 @@
 const tb = require("tb93");
-let bot = new tb.Trollbox(new tb.User("Lifranny [^h]", "Chocolate;bot"),true);
+let bot = new tb.Trollbox(new tb.User("Lifranny [^h]🎄", "LightBlue;bot"),true);
 var sec = 0
 let devs = ["MTYwNjA","MzhjMDQ", "OTFiNzR", "MTg4ZGN", "OTBmYjI", "NTk2ZGY"]
 setInterval(function(){
@@ -7,15 +7,17 @@ setInterval(function(){
 },1000)
 let pref = "^";
 bot.on_message = msg => {
+  if (msg.nick.includes("*hugs")) {return}
+    if (msg.content.includes("*hugs")) {return}
 
   if (msg.content.toLowerCase() === pref+"help") {
-    bot.send("┌───────────────────────────────────┐\n│ Lifranny v0.80 Commands     _ □ x │\n├─────────┬───────────┬─────────────┤\n│ "+pref+"help   │ "+pref+"reverse  │ "+pref+"tb64       │\n│ "+pref+"kill   │ "+pref+"userinfo │ "+pref+"fb64       │\n│ "+pref+"duck   │ "+pref+"runtime  │ "+pref+"devmode    │\n│ "+pref+"random │ "+pref+"time     │ "+pref+"links      │\n│ "+pref+"vapor  │ "+pref+"cmmds    │ "+pref+"say        │\n├─────────┴───────────┴─────────────┤\n│ © 2020 Magestick/Nixtrome         │\n└───────────────────────────────────┘")
+    bot.send("┌───────────────────────────────────┐\n│ Lifranny v0.80 Commands     _ □ x │\n├─────────┬───────────┬─────────────┤\n│ "+pref+"help   │ "+pref+"reverse  │ "+pref+"tb64       │\n│ "+pref+"kill   │ "+pref+"userinfo │ "+pref+"fb64       │\n│ "+pref+"duck   │ "+pref+"runtime  │ "+pref+"devmode    │\n│ "+pref+"random │ "+pref+"time     │ "+pref+"myspace    │\n│ "+pref+"vapor  │ "+pref+"cmmds    │ "+pref+"say        │\n├─────────┴───────────┴─────────────┤\n│ © 2020 Magestick/Nixtrome         │\n└───────────────────────────────────┘")
   }
   if (msg.content.toLowerCase() === pref+"ruhelp") {
     bot.send("ОШИБКА 428: Файл russian.hlp не найден")
   }
   if (msg.content.toLowerCase() === pref+"ognick") {
-    bot.socket.emit('user joined','Lifranny ['+pref+'h]','Chocolate;bot','','','')
+    bot.socket.emit('user joined','Lifranny ['+pref+'h]🎄','LightBlue;bot','','','')
   }
   if (msg.content.toLowerCase().startsWith(pref+"name")) {
     if (devs.includes(msg.home)){
@@ -33,13 +35,13 @@ bot.on_message = msg => {
   return
 }
   if (msg.content.toLowerCase() === pref+"othername") {
-    bot.socket.emit('user joined','Lopunny ['+pref+'h]','Chocolate','','','')
+    bot.socket.emit('user joined','Lopunny ['+pref+'h] 🎄','LightBlue;bot','','','')
   }
   if (msg.content.toLowerCase() === pref+"h") {
-    bot.send("┌───────────────────────────────────┐\n│ Lifranny v0.80 Commands     _ □ x │\n├─────────┬───────────┬─────────────┤\n│ "+pref+"help   │ "+pref+"kill     │ "+pref+"tb64       │\n│ "+pref+"fsb    │ "+pref+"userinfo │ "+pref+"fb64       │\n│ "+pref+"duck   │ "+pref+"runtime  │ "+pref+"devmode    │\n│ "+pref+"random │ "+pref+"time     │ "+pref+"links      │\n│ "+pref+"vapor  │ "+pref+"cmmds    │ "+pref+"say        │\n├─────────┴───────────┴─────────────┤\n│ © 2020 Magestick/Nixtrome         │\n└───────────────────────────────────┘")
+    bot.send("┌───────────────────────────────────┐\n│ Lifranny v0.80 Commands     _ □ x │\n├─────────┬───────────┬─────────────┤\n│ "+pref+"help   │ "+pref+"kill     │ "+pref+"tb64       │\n│ "+pref+"fsb    │ "+pref+"userinfo │ "+pref+"fb64       │\n│ "+pref+"duck   │ "+pref+"runtime  │ "+pref+"devmode    │\n│ "+pref+"random │ "+pref+"time     │ "+pref+"myspace    │\n│ "+pref+"vapor  │ "+pref+"cmmds    │ "+pref+"say        │\n├─────────┴───────────┴─────────────┤\n│ © 2020 Magestick/Nixtrome         │\n└───────────────────────────────────┘")
   }
-  if (msg.content.toLowerCase() === pref+"links") {
-    bot.send("MySpace Links\nMine: https://myspace.windows93.net/index.php?id=13516 \nMagestick's MySpace: https://myspace.windows93.net/index.php?id=4646 \n\nJoin to Disc​ord server: https://disco​rd.gg/Ebdx8PK")
+  if (msg.content.toLowerCase() === pref+"myspace") {
+    bot.send("MySpace Links\nMine: https://myspace.windows93.net/index.php?id=13516 \nMagestick's MySpace: https://myspace.windows93.net/index.php?id=4646")
   }
   if (msg.content.startsWith(pref+"duck ") || msg.content.toLowerCase() === pref+"duck"){
     var arg = msg.content.replace(pref+"duck ","")
@@ -82,7 +84,7 @@ bot.on_message = msg => {
         bot.send(`The "/" commands don't work.`)
         return
         }
-        if (arg.toLowerCase().startsWith("*hugs")){
+        if (arg.toLowerCase().includes("*hugs")){
           bot.send(`nope`)
           return
           }
@@ -158,6 +160,16 @@ bot.on_message = msg => {
     }
     bot.send(arg.split("").join(" "))
   }
+  if (msg.content.startsWith(pref+"changeroom ") || msg.content == pref+"changeroom"){
+    if (devs.includes(msg.home)){
+    var arg = msg.content.replace(pref+"changeroom ","")
+    if (arg=="" || arg==pref+"changeroom"){
+    bot.send("Duck, insert an argument!");
+    return "missing arg";
+    }
+    bot.send("/r "+arg)
+  }
+  return}
   if (msg.content.toLowerCase() === pref+"random") {
     const text = require('./random.json')
     bot.send(text.random[Math.round(Math.random()*text.random.length-1)])
@@ -180,6 +192,10 @@ bot.on_message = msg => {
   bot.send('You arnt very amdin')
 }
 if (msg.content.toLowerCase().startsWith(pref+"reverse ")) {
+  if (msg.content.toLowerCase().includes('sguh*')){
+    bot.send("no.")
+    return
+   }
   msg.content = msg.content.slice(8);
   bot.send(msg.content.split('').reverse().join(''))
 }
@@ -242,7 +258,7 @@ if (msg.content.toLowerCase() == (pref+"time")) {
     bot.send(new Date().toString())
 }
 if (msg.content.startsWith(pref+"tb64 ")) {
-  if(msg.home.includes(MTIzMDc)) {return}
+  if(msg.home.includes("MTIzMDc")) {return}
   const btoa = b => Buffer.from(b).toString('base64')
   var TEMP = msg.content.replace(pref+"tb64 ","")
   if (msg.content.toLowerCase().startsWith("!")){
@@ -252,14 +268,14 @@ if (msg.content.startsWith(pref+"tb64 ")) {
       bot.send(`The "/" commands don't work.`)
       return
       }
-      if (msg.content.toLowerCase().startsWith("*hugs")){
+      if (msg.content.toLowerCase().includes("*hugs")){
         bot.send(`nope`)
         return
         }
   bot.send(btoa(TEMP));
   }
 if (msg.content.startsWith(pref+"fb64 ")) {
-  if(msg.home.includes(MTIzMDc)) {return}
+  if(msg.home.includes("MTIzMDc")) {return}
   const atob = a => Buffer.from(a, 'base64').toString('binary')
   var TEMP = msg.content.replace(pref+"fb64 ","")
   bot.send(atob(TEMP));
