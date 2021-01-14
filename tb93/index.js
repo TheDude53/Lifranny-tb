@@ -42,14 +42,14 @@ class Message {
     return this.toString();
   }
 }
-class MessageRecieved {
-  constructor(content, date, nick, home, color, style) {
+class MessageReceived {
+  constructor(content, date, nick, color, style, home) {
     this.content = typeof content === "string" ? content : "";
-    this.date = typeof date === "number" && Number.isInteger(date) ? new Date(date) : null;
-    this.nick = typeof nick === "string" ? nick : "";
-	this.home = typeof home === "string" ? home : "";
+	this.nick = typeof nick === "string" ? nick : "";
 	this.color = typeof color === "string" ? color : "";
 	this.style = typeof style === "string" ? style : "";
+	this.home = typeof home === "string" ? home : "";
+    this.date = typeof date === "number" && Number.isInteger(date) ? new Date(date) : null;
   }
 
   toString() {
@@ -103,15 +103,14 @@ class Trollbox {
       if (!data || typeof data.msg !== "string" || typeof data.nick !== "string") return;
       try {
         this.on_message(
-          new MessageRecieved(
+          new MessageReceived(
             decode(data.msg),
             data.date,
             decode(data.nick),
-			data.home,
             decode(data.color),
             decode(data.style),
-            )
-          );
+            data.home
+        ));
       } catch (err) {
         this.on_error(err);
       }
@@ -178,13 +177,6 @@ class Trollbox {
       this.socket.emit("message", message.content);
     } else if (typeof message === "string") {
       this.socket.emit("message", message);
-    }
-  }
-  lowLevelEmit(data, data2, data3, data4, data5) {
-    try{
-      this.socket.emit(data, data2, data3, data4, data5);
-    } catch (err) {
-      this.on_error(err);
     }
   }
 }
