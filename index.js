@@ -38,7 +38,7 @@ bot.on_message = async msg => {
     bot.send("Utility Commands\n================\n"+pref+"help – Shows the help page\n"+pref+"userinfo <user> - Information about yourself/anyone else\n"+pref+"about – About this bot\n"+pref+"tb64 – Encode text using Base64\n"+pref+"fb64 – Decode text from Base64\n"+pref+"time – Shows time of hosted bot\n"+pref+"runtime – Shows how many time bot has runned\n================")
   }
   if (msg.content.toLowerCase() === pref+"help other" || msg.content.toLowerCase() === pref+"h other" || msg.content.toLowerCase() === pref+"hlp other") {
-    bot.send("Other Commands\n==============\n"+pref+"vapor [word] – Spaces on every letter\n"+pref+"say [word] – Just repeats word you said\n"+pref+"urban [word] – Shows an Urban Dictionary definition\n"+pref+"fsb – Nothing special, just for fun\n"+pref+"duck [user] – You are duck!\n"+pref+"kill [user] – Kills the user\n"+pref+"hug [user] – Hugs the user\n"+pref+"kiss [user] – Kisses the user\n"+pref+"ascii – A random ascii\n==============")
+    bot.send("Other Commands\n==============\n"+pref+"vapor [word] – Spaces on every letter\n"+pref+"say [word] – Just repeats word you said\n"+pref+"fsb – Nothing special, just for fun\n"+pref+"duck [user] – You are duck!\n"+pref+"kill [user] – Kills the user\n"+pref+"hug [user] – Hugs the user\n"+pref+"kiss [user] – Kisses the user\n"+pref+"ascii – A random ascii\n==============")
   }
     if (msg.content.toLowerCase() === pref+"help developers" || msg.content.toLowerCase() === pref+"h developers" || msg.content.toLowerCase() === pref+"hlp developers") {
       if (devs.includes(msg.home)){
@@ -412,21 +412,7 @@ if (msg.content.startsWith(pref+"fb64 ")) {
 }
 var dmessagea = msg.content;
 var args = dmessagea.split(' ').slice(1);
-if (msg.content.startsWith(pref+"urban")){
-  if (!args.length) {
-    return bot.send('You need to supply a search term!');
-  }try{
-query = querystring.stringify({ term: args.join(' ') });
 
-  var { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
-  if (!list.length) {
-  return bot.send(`Unable to find definition <${args.join(' ')}>.`);
-}
-bot.send(list[0].definition);
-}catch (err){
-  bot.send("An unhandled exception has occurred.")
-  }
-}
 
 //msg.content.toLowerCase() - content of message
 //msg.nick - username
